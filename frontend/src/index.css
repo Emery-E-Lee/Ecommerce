@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 헤더 */
+header {
+  background-color: #404040;
+  padding: 1rem;
+}
+
+header a {
+  color: white;
+  font-weight: bold;
+  /* a 태그 기본 스타일 초기화 */
+  text-decoration: none;
+}
+
+main {
+  padding: 1rem;
+}
+
+/* 메인 페이지 음료 */
+.products {
+  display: flex;
+  /* 공간이 없으면 아래로 내려감 */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.product {
+  border: 1px #404040 solid;
+  margin: 1rem;
+}
+
+.product img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.product-info {
+  padding: 1rem;
+}
