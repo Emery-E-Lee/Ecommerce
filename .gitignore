@@ -32,3 +32,4 @@ frontend/src/reportWebVitals.js
 frontend/src/App.test.js
 frontend/public/robots.txt
 frontend/public/manifest.json
+backend/database/db.js
