@@ -8,17 +8,17 @@ body {
 }
 
 /* 헤더 */
-header {
+/* header {
   background-color: #404040;
   padding: 1rem;
 }
 
 header a {
   color: white;
-  font-weight: bold;
-  /* a 태그 기본 스타일 초기화 */
-  text-decoration: none;
-}
+  font-weight: bold; */
+/* a 태그 기본 스타일 초기화 */
+/* text-decoration: none;
+} */
 
 main {
   padding: 1rem;
