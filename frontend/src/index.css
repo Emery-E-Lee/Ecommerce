@@ -46,3 +46,18 @@ main {
 .product-info {
   padding: 1rem;
 }
+
+/* 별점(Rating) */
+
+.rating {
+  display: flex;
+}
+
+.rating span {
+  color: #ffc000;
+}
+
+.rating-review-num {
+  font-size: medium;
+  margin-left: 5px;
+}
