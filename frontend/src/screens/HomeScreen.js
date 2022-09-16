@@ -2,19 +2,9 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState, useReducer } from 'react';
-import {
-  Container,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  CssBaseline,
-  Grid,
-  Stack,
-  Box,
-  Typography,
-} from '@mui/material';
+import { Container } from '@mui/material';
 import HomeHero from '../components/HomeHero';
+import Product from '../components/Product';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -62,20 +52,8 @@ function HomeScreen() {
           ) : error ? (
             <div>{error}</div>
           ) : (
-            products.map((beverage) => (
-              <div key={beverage.slug} className="product">
-                <Link to={`/product/${beverage.slug}`}>
-                  <img src={beverage.image} alt={beverage.name} />
-                </Link>
-                <div className="product-info">
-                  <Link to={`/product/${beverage.slug}`}>
-                    <p>{beverage.name}</p>
-                  </Link>
-                  <p>
-                    <strong>₩{beverage.price}</strong>
-                  </p>
-                </div>
-              </div>
+            products.map((product) => (
+              <Product key={product.slug} product={product}></Product>
             ))
           )}
         </div>
