@@ -1,7 +1,7 @@
 // import data from '../data';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Container } from '@mui/material';
 import HomeHero from '../components/HomeHero';
 import Product from '../components/Product';

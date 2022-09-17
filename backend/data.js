@@ -19,7 +19,7 @@ const data = {
       category: '에스프레소',
       image: '/images/espresso-con-panna.jpg',
       price: 4.2,
-      countInStock: 20,
+      countInStock: 0,
       brand: '스타벅스',
       rating: 4.0,
       numReviews: 10,
