@@ -127,7 +127,12 @@ function Header() {
             </Typography>
             {/* md 사이즈 메뉴 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <CartBadge badgeContent={cart.cartItems.length} />
+              <CartBadge
+                badgeContent={cart.cartItems.reduce(
+                  (a, c) => a + c.quantity,
+                  0
+                )}
+              />
             </Box>
             {/* 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

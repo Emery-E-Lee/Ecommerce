@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: '나이트로 바닐라 크림',
       slug: 'nitro-vanilla-cream',
       category: '콜드브루',
@@ -14,6 +15,7 @@ const data = {
         '부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!',
     },
     {
+      _id: '2',
       name: '에스프레소 콘 파나',
       slug: 'espresso-con-panna',
       category: '에스프레소',
@@ -27,6 +29,7 @@ const data = {
         '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료',
     },
     {
+      _id: '3',
       name: '블랙 티 레모네이드 피지오',
       slug: 'black-tea-lemonade-starbucks-fizzio',
       category: '스타벅스 피지오',
@@ -41,6 +44,7 @@ const data = {
     },
 
     {
+      _id: '4',
       name: '그린 애플 캐모마일 티',
       slug: 'green-apple-chamomile-tea',
       category: '티',

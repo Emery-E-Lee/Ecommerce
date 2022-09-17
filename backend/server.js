@@ -17,6 +17,16 @@ app.get('/api/products/slug/:slug', (req, res) => {
   }
 });
 
+app.get('/api/products/:id', (req, res) => {
+  const product = data.products.find((x) => x._id === req.params.id);
+  console.log(req.params.id);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
+
 // PORT 값이 설정돼 있지 않다면, 5000번을 사용
 const port = process.env.PORT || 5000;
 
