@@ -6,6 +6,9 @@ import Rating from '../components/Rating';
 
 import theme from '../style/ThemeColors';
 import { ThemeProvider } from '@mui/material/styles';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../util';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,7 +41,7 @@ function ProductScreen() {
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
 
       // setProducts(result.data);
@@ -47,12 +50,12 @@ function ProductScreen() {
   }, [slug]);
 
   return loading ? (
-    <div>Loading...</div>
+    <LoadingBox />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox severity="error">{error}</MessageBox>
   ) : (
     <ThemeProvider theme={theme}>
-      <Grid container xs={12} sm={12} my={4} bgcolor="white">
+      <Grid container my={4} bgcolor="white">
         <Grid item xs={12} sm={5} align="right">
           <Card sx={{ minWidth: 400, maxWidth: 450 }}>
             <CardMedia
