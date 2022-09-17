@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Grid, Card, CardMedia, Button } from '@mui/material';
 import Rating from '../components/Rating';
@@ -9,6 +9,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../util';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -48,6 +49,14 @@ function ProductScreen() {
     };
     fetchData();
   }, [slug]);
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity: 1 },
+    });
+  };
 
   return loading ? (
     <LoadingBox />
@@ -161,6 +170,7 @@ function ProductScreen() {
               variant="contained"
               size="medium"
               sx={{ mt: 2 }}
+              onClick={addToCartHandler}
             >
               장바구니에 추가
             </Button>

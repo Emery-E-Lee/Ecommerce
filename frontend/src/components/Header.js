@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import {
   AppBar,
   Typography,
@@ -14,11 +15,17 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
+import { Store } from '../Store';
+import CartBadge from './CartBadge';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Cart'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
+  const { state } = useContext(Store);
+  const { cart } = state;
+  console.log(cart.cartItem);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -120,6 +127,10 @@ function Header() {
             </Typography>
             {/* md 사이즈 메뉴 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <CartBadge badgeContent={cart.cartItems.length} />
+            </Box>
+            {/* 
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
@@ -129,14 +140,17 @@ function Header() {
                   {page}
                 </Button>
               ))}
-            </Box>
+            </Box> */}
+
             {/* 유저 메뉴 */}
+
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
+
               <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
